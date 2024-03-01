@@ -1,2 +1,2 @@
 # DevRepo
-This repository contains, practice files for java development projects
+This repository contains, practice files for Java, JavaScript and Python
