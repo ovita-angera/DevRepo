@@ -1,22 +1,21 @@
 import { useEffect, useState } from 'react'
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import './App.css'
 import { StatusButton } from './components/StatusButton'
 
 function App() {
   const [services, setServices] = useState([])
-  const [instances, setInstances] = useState([])
   
   useEffect(() => {
     fetch('http://localhost:8000/services')
       .then(res => res.json())
       .then((data) => {
         setServices(data.data);
-        setInstances(data.data.instances);
       })
+
   },[])
 
   return (
+    <>
       <table>
         <thead>
         <tr>
@@ -40,10 +39,17 @@ function App() {
                 color={service.status === 'available'? 'green' : 'red'} 
                 />
               </td>
+              <td>
+                <div className='instances'>
+                  <div>{service.number_of_instances}</div>
+                  <StatusButton text='Explore' color={'green'} />
+                </div>
+                </td>
             </tr>
           ))}
         </tbody>
       </table>
+    </>
   )
 }
 
