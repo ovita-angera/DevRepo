@@ -1,0 +1,5 @@
+first_name last_name age status gender
+brian      mike  23 single male
+noel gallager 45 married  male
+lucy wanjohi  35  single female
+bianca kaluma  45  married female
